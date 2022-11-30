@@ -1,1 +1,1 @@
-# ytboi
+# ytboi is a youtube video downloader project
