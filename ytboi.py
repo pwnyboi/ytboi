@@ -1,28 +1,31 @@
 from pytube import YouTube 
 from sys import argv
+import time
+import os
 
-link = input("Please enter YouTube link to download: ")
 dest = input("Please enter destination to download? Leave blank if no destination")
-#link = argv[1]
-#link = "https://www.youtube.com/watch?v=vEQ8CXFWLZU"
-yt = YouTube(link)
-
-#yd = yt.streams.get_highest_resolution()
-#yd.download(r"C:/Users/Black/Documents/GitHub/ytboi/Downloads")
-#print("Download Successful!")
-
 
 def downloader():
+    link = input("Please enter YouTube link to download: ")
+    yt = YouTube(link)
     yd = yt.streams.get_highest_resolution()
     yd.download(dest)
-    #yd.download(r"C:/Users/Black/Documents/GitHub/ytboi/Downloads")
     print("Downloading: ", yt.title)
     print("This video has: ", yt.views)
     print("Download Successful!")
-    
+    time.sleep(.69)
+
 def ask_continue():
+    continue_downloading = input("Want to download another video? y/n")
+    if continue_downloading == "Y":
+        return
+    if continue_downloading == "y":
+        return
+    else:
+        quit()
+        
 
-
-
-downloader()
-ask_continue()
+while True:
+    downloader()
+    ask_continue()
+    continue
