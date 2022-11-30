@@ -3,16 +3,20 @@ from sys import argv
 import time
 import os
 
-dest = input("Please enter destination to download? Leave blank if no destination")
+dest = input("Please enter destination to download? Leave blank if no destination: ")
 
 def downloader():
     link = input("Please enter YouTube link to download: ")
-    print("Downloading: ", yt.title)
+    if link == None or link == '':
+    	link = "https://www.youtube.com/watch?v=eBGIQ7ZuuiU"
+    
     yt = YouTube(link)
     yd = yt.streams.get_highest_resolution()
-    yd.download(dest)
 
-    print("This video has: ", yt.views)
+    print("Downloading: ", yt.title)
+    print("This video has: {} views ".format(yt.views))
+    print('Downloading to: {}'.format(dest))
+    yd.download(dest)
     print("Download Successful!")
     time.sleep(.69)
 
