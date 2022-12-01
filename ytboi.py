@@ -33,5 +33,8 @@ def ask_continue():
 
 while True:
     downloader()
+    time.sleep(.69)
     ask_continue()
+    time.sleep(.69)
+
     continue
