@@ -1,12 +1,10 @@
 from pytube import YouTube
 from sys import argv
-from moviepy.editor import *
 import moviepy.editor as mp
 import time
 import os
 
 og_dir = os.getcwd()
-
 
 def new_project():
     project_name = input('Project Name: ')
@@ -15,6 +13,8 @@ def new_project():
         project_name = input('Project Name: ')
         os.system('cls')
     os.chdir(og_dir)
+    if not os.path.exists('./Downloads'):
+        os.mkdir('./Downloads')
     os.chdir(f'./Downloads')
     os.mkdir(project_name)
     os.chdir(f'./{project_name}')
@@ -68,12 +68,8 @@ while True:
     time.sleep(.69)
     my_clip = mp.VideoFileClip(f"{vid_title}.mp4")
     print("converting audio tack...")
-    time.sleep(.9)
     my_clip.audio.write_audiofile(f"{vid_title}.mp3")
     os.system('cls')
     ask_continue()
     time.sleep(.69)
     continue
-
-
-# https://stackoverflow.com/questions/3207219/how-do-i-list-all-files-of-a-directory
