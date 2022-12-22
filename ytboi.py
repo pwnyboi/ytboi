@@ -1,5 +1,6 @@
 from pytube import YouTube
 from sys import argv
+import moviepy
 import moviepy.editor as mp
 import time
 import os
@@ -20,9 +21,6 @@ def new_project():
     os.chdir(f'./{project_name}')
     dir_path = print(f'Moving to: {os.getcwd()}')
     return dir_path
-
-#dest = input("Please enter destination to download? Leave blank if no destination: ")
-# os.chdir()
 
 
 def downloader():
